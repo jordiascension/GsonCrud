@@ -63,7 +63,7 @@ public class StudentConsole {
 		System.out.println("Introduce apellidos: ");
 		student.setSurname(scanner.nextLine());
 
-		System.out.println("Introduce Fecha de nacimiento: ");
+		System.out.println("Introduce Fecha de nacimiento (dd-MM-yyyy): ");
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		LocalDate dateOfBirth = LocalDate.parse(scanner.nextLine(), formatter);
 
