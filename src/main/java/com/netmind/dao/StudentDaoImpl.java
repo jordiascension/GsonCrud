@@ -30,7 +30,7 @@ public class StudentDaoImpl implements StudentDao {
 	public boolean addStudentToFile(Student student) throws IOException {
 		logger.info("addStudentToFile method called");
 		try (FileWriter fileWriter = new FileWriter(
-				FileManagerDao.getFileName(), true);
+				FileManagerDao.getFileName("txt"), true);
 				BufferedWriter bufferWriter = new BufferedWriter(fileWriter)) {
 			bufferWriter.write(student.toTxtFile());
 			bufferWriter.write(System.lineSeparator());
@@ -45,6 +45,8 @@ public class StudentDaoImpl implements StudentDao {
 	@Override
 	public boolean addToJsonFile(Student student) throws IOException {
 		// TODO Auto-generated method stub
+
+		String fileName = FileManagerDao.getFileName("json");
 		return false;
 	}
 
