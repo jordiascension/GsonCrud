@@ -69,14 +69,9 @@ public class FileManagerDao extends Thread {
 
 		if (fileType.size() < twoDataFiles) {
 			if (fileName.contains(".txt")) {
-				synchronized (fileType) {
-					fileType.put("txt", file);
-				}
-
+				fileType.put("txt", file);
 			} else if (fileName.contains(".json")) {
-				synchronized (fileType) {
-					fileType.put("json", file);
-				}
+				fileType.put("json", file);
 			}
 		}
 	}
