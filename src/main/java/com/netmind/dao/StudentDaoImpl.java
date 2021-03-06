@@ -3,10 +3,16 @@ package com.netmind.dao;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.netmind.common.model.LocalDateSerializer;
 import com.netmind.common.model.Student;
 import com.netmind.dao.contracts.StudentDao;
 
@@ -45,8 +51,30 @@ public class StudentDaoImpl implements StudentDao {
 	@Override
 	public boolean addToJsonFile(Student student) throws IOException {
 		// TODO Auto-generated method stub
+		List<Student> studentList = getAllFromJson();
+		studentList.add(student);
+
+		try (Writer writer = new FileWriter(
+				FileManagerDao.getFileName("json"))) {
+
+			GsonBuilder gsonBuilder = new GsonBuilder();
+			gsonBuilder.registerTypeAdapter(LocalDate.class,
+					new LocalDateSerializer());
+
+			Gson gson = gsonBuilder.setPrettyPrinting().create();
+			gson.toJson(studentList.toArray(), writer);
+		} catch (IOException e) {
+			logger.error(e.getMessage() + student.toString());
+			throw e;
+		}
 
 		return true;
+	}
+
+	@Override
+	public ArrayList<Student> getAllFromJson() {
+		// TODO Auto-generated method stub
+		return new ArrayList<Student>();
 	}
 
 }

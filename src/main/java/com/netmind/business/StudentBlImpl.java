@@ -55,6 +55,6 @@ public class StudentBlImpl implements StudentBl {
 		StudentDao studentDao = new StudentDaoImpl();
 		// TODO Auto-generated method stub
 		return studentDao.addToJsonFile(student);
-
 	}
+
 }
