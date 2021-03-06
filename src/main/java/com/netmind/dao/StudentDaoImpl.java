@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
+import com.netmind.common.model.Student;
 import com.netmind.dao.contracts.StudentDao;
-import com.netmind.model.Student;
 
 public class StudentDaoImpl implements StudentDao {
 
@@ -46,8 +46,7 @@ public class StudentDaoImpl implements StudentDao {
 	public boolean addToJsonFile(Student student) throws IOException {
 		// TODO Auto-generated method stub
 
-		String fileName = FileManagerDao.getFileName("json");
-		return false;
+		return true;
 	}
 
 }

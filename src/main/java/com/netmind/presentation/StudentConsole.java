@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 import com.netmind.business.StudentBlImpl;
 import com.netmind.business.contracts.StudentBl;
-import com.netmind.model.EnumStudent;
-import com.netmind.model.Student;
+import com.netmind.common.model.EnumStudent;
+import com.netmind.common.model.Student;
 
 public class StudentConsole {
 
@@ -32,6 +32,7 @@ public class StudentConsole {
 				addNewStudent(student, scanner);
 				try {
 					studentBl.add(student);
+					studentBl.addToJsonFile(student);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					System.out.println(e.getMessage());

@@ -1,2 +1,14 @@
+com\netmind\model\EnumStudent.class
+com\netmind\business\ArrayExercise.class
+com\netmind\presentation\Principal.class
+com\netmind\dao\contracts\StudentDao.class
+com\netmind\presentation\StudentConsole.class
 com\netmind\presentation\JsoupExample.class
+com\netmind\business\StudentBlImpl.class
+com\netmind\model\Student.class
+com\netmind\business\contracts\StudentBl.class
+com\netmind\dao\FileManagerDao.class
+com\netmind\dao\StudentDaoImpl.class
+com\netmind\business\Calculator.class
+com\netmind\model\NetmindObject.class
 com\netmind\presentation\StudentConsole$1.class

@@ -2,14 +2,21 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.netmind</groupId>
   <artifactId>gson</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>4.0.0-SNAPSHOOT</version>
   
-  <distributionManagement>
+  <!--  <distributionManagement>
    <repository>
      <id>github</id>
      <name>GitHub jordiascension Apache Maven Packages</name>
      <url>https://maven.pkg.github.com/jordiascension/GsonCrud</url>
    </repository>
+  </distributionManagement>-->
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub fjiemnezJOB Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/fjimenezJOB/MyFirstJavaProject</url>
+    </repository>
   </distributionManagement>
   
    <properties>

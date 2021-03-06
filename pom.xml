@@ -2,16 +2,15 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.netmind</groupId>
   <artifactId>gson</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>4.0.0-SNAPSHOOT</version>
   
-  <distributionManagement>
-   <repository>
+  <repository>
      <id>github</id>
      <name>GitHub jordiascension Apache Maven Packages</name>
      <url>https://maven.pkg.github.com/jordiascension/GsonCrud</url>
-   </repository>
+  </repository>
+
   </distributionManagement>
-  
    <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
