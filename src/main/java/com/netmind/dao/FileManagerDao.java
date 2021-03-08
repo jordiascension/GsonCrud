@@ -2,15 +2,20 @@ package com.netmind.dao;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class FileManagerDao extends Thread {
 	private String fileName;
 
 	private static File file = null;
 
-	public static Map<String, File> fileType = new HashMap<String, File>();
+	// public static Map<String, File> fileType = new HashMap<String, File>();
+	/*
+	 * https://howtodoinjava.com/java/collections/hashmap/synchronize-hashmap/
+	 * #:~:text=Java%20HashMap%20is%20not%20synchronized,
+	 * hashmap%20and%20ConcurrentHashMap%20in%20Java
+	 */
+	private static ConcurrentHashMap<String, File> fileType = new ConcurrentHashMap<String, File>();
 
 	public FileManagerDao() {
 
