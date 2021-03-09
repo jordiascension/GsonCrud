@@ -14,7 +14,8 @@
   
    <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.source>1.8</maven.compiler.source> 
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>       
    </properties>
 
   <dependencies>
@@ -58,15 +59,17 @@
             <version>3.6.1</version>
             <configuration>
                 <source>1.8</source>
-                <target>1.8</target>
+                <target>1.8</target> 
+                <encoding>Cp1252</encoding>              
              </configuration>
         </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
             <version>3.1.1</version>
+            
 
-            <configuration>
+            <configuration>               
                 <descriptorRefs>
                     <descriptorRef>jar-with-dependencies</descriptorRef>
                 </descriptorRefs>
