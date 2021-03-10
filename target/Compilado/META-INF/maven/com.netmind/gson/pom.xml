@@ -48,12 +48,6 @@
 	    <version>4.13.2</version>
 	    <scope>test</scope>
 	</dependency>	 
-	<dependency>
-		<groupId>pl.pragmatists</groupId>
-	    <artifactId>JUnitParams</artifactId>
-	    <version>1.0.5</version>
-	    <scope>test</scope>
-	</dependency>
   </dependencies>
   
   <build>
