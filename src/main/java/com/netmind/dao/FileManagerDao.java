@@ -28,6 +28,8 @@ public class FileManagerDao extends Thread {
 	public static synchronized boolean createFile(String fileName)
 			throws IOException {
 		boolean isFileCreated = false;
+		int twoDataFiles = 2;
+
 		file = new File(fileName);
 
 		try {
@@ -44,6 +46,14 @@ public class FileManagerDao extends Thread {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+
+		if (fileType.size() < twoDataFiles) {
+			if (fileName.contains(".txt")) {
+				fileType.put("txt", file);
+			} else if (fileName.contains(".json")) {
+				fileType.put("json", file);
+			}
 		}
 
 		return isFileCreated;

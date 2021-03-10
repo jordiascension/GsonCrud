@@ -1,8 +1,10 @@
 package com.netmind.dao;
 
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
 import java.io.Writer;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -71,10 +73,21 @@ public class StudentDaoImpl implements StudentDao {
 		return true;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ArrayList<Student> getAllFromJson() {
 		// TODO Auto-generated method stub
-		return new ArrayList<Student>();
+		ArrayList<Student> studentList = null;
+		try (Reader reader = new FileReader(
+				FileManagerDao.getFileName("json"))) {
+			studentList = new Gson().fromJson(reader, ArrayList.class);
+			if (studentList == null) {
+				studentList = new ArrayList<Student>();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return studentList;
 	}
 
 }
