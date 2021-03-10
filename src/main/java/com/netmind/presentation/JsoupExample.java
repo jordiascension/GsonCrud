@@ -1,8 +1,6 @@
 package com.netmind.presentation;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -24,19 +22,22 @@ public class JsoupExample {
 		 * e.printStackTrace(); }
 		 */
 
-		String rawString = "Imprimiendo euros €";
-		byte[] bytes = rawString.getBytes(StandardCharsets.UTF_8);
-
-		String utf8EncodedString = new String(bytes, StandardCharsets.UTF_8);
-		System.out.println(utf8EncodedString);
+		// String rawString = "Imprimiendo euros €";
+		/*
+		 * byte[] bytes = rawString.getBytes(StandardCharsets.UTF_8);
+		 * 
+		 * String utf8EncodedString = new String(bytes, StandardCharsets.UTF_8);
+		 * System.out.println(utf8EncodedString);
+		 */
 		System.out.println("Imprimiendo euros €");
 
-		String rawString2 = "Imprimiendo euros €";
-		ByteBuffer buffer = StandardCharsets.UTF_8.encode(rawString2);
-
-		String utf8EncodedString2 = StandardCharsets.UTF_8.decode(buffer)
-				.toString();
-		System.out.println(utf8EncodedString2);
+		/*
+		 * String rawString2 = "Imprimiendo euros €"; ByteBuffer buffer =
+		 * StandardCharsets.UTF_8.encode(rawString2);
+		 * 
+		 * String utf8EncodedString2 = StandardCharsets.UTF_8.decode(buffer)
+		 * .toString(); System.out.println(utf8EncodedString2);
+		 */
 
 		String url = "http://en.wikipedia.org/";
 		print("Fetching %s...", url);
