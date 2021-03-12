@@ -10,6 +10,8 @@ public interface StudentDao {
 
 	boolean addToJsonFile(Student student) throws IOException;
 
+	boolean updateToJsonFile(Student student) throws IOException;
+
 	boolean addStudentToFile(Student student) throws IOException;
 
 	List<Student> getAllFromJson();

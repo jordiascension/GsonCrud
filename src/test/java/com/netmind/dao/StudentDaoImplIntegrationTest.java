@@ -51,8 +51,8 @@ public class StudentDaoImplIntegrationTest {
 
 		Student student1 = new Student();
 		student1.setIdStudent(2);
-		student1.setName("jordi");
-		student1.setSurname("ferrer");
+		student1.setName("pepe");
+		student1.setSurname("martinez");
 		student1.setAge(20);
 		DateTimeFormatter formatter1 = DateTimeFormatter
 				.ofPattern("dd-MM-yyyy");
@@ -65,7 +65,12 @@ public class StudentDaoImplIntegrationTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-
+		/*
+		 * File txtFile = new File(Config.getTxtFileName()); txtFile.delete();
+		 * 
+		 * File jsonFile = new File(Config.getJsonFileName());
+		 * jsonFile.delete();
+		 */
 	}
 
 	/*
@@ -73,7 +78,9 @@ public class StudentDaoImplIntegrationTest {
 	 * 
 	 * @After public void tearDown() throws Exception { }
 	 */
+
 	@Test
+
 	@Parameters({ "3, pepe, soto, 21, 26-02-2000",
 			"4, Mar, Biel, 21, 26-02-2000",
 			"5, Juan, Fernando, 21, 26-02-2000" })
@@ -95,6 +102,19 @@ public class StudentDaoImplIntegrationTest {
 	@Test
 	public void testGetAllFromJson() throws IOException {
 		assertTrue(studentDao.getAllFromJson().size() > 0);
+	}
+
+	@Test
+	public void testUpdateFromJson() throws IOException {
+		Student student = new Student();
+		student.setIdStudent(1);
+		student.setName("ACTUALIZADO");
+		student.setSurname("ACTUALIZADO");
+		student.setAge(20);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		LocalDate dateOfBirth = LocalDate.parse("21-02-1999", formatter);
+		student.setDateOfBirth(dateOfBirth);
+		assertTrue(studentDao.updateToJsonFile(student) == true);
 	}
 
 }
