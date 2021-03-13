@@ -63,19 +63,7 @@ public class StudentDaoImpl implements StudentDao {
 		List<Student> studentList = getAllFromJson();
 		studentList.add(student);
 
-		try (Writer writer = new FileWriter(FileManagerDao.getFileName("json"),
-				false)) {
-
-			GsonBuilder gsonBuilder = new GsonBuilder();
-			gsonBuilder.registerTypeAdapter(LocalDate.class,
-					new LocalDateSerializer());
-
-			Gson gson = gsonBuilder.setPrettyPrinting().create();
-			gson.toJson(studentList.toArray(), writer);
-		} catch (IOException e) {
-			logger.error(e.getMessage() + student.toString());
-			throw e;
-		}
+		writeDataToJsonFile(studentList);
 
 		return true;
 	}
@@ -130,6 +118,30 @@ public class StudentDaoImpl implements StudentDao {
 		studentFiltered.setAge(student.getAge());
 		studentFiltered.setDateOfBirth(student.getDateOfBirth());
 
+		writeDataToJsonFile(studentList);
+
+		return true;
+	}
+
+	@Override
+	public boolean removeFromJsonFile(Integer id) throws IOException {
+		List<Student> studentJsonList = getAllFromJson();
+		Student removedStudent = null;
+
+		removedStudent = studentJsonList.stream()
+				.filter(student -> student.getIdStudent().equals(id))
+				.findFirst().get();
+
+		if (removedStudent != null) {
+			studentJsonList.remove(removedStudent);
+			return writeDataToJsonFile(studentJsonList);
+		} else {
+			return false;
+		}
+	}
+
+	private boolean writeDataToJsonFile(List<Student> studentJsonList)
+			throws IOException {
 		try (Writer writer = new FileWriter(FileManagerDao.getFileName("json"),
 				false)) {
 
@@ -138,11 +150,12 @@ public class StudentDaoImpl implements StudentDao {
 					new LocalDateSerializer());
 
 			Gson gson = gsonBuilder.setPrettyPrinting().create();
-			gson.toJson(studentList.toArray(), writer);
+			gson.toJson(studentJsonList.toArray(), writer);
 		} catch (IOException e) {
-			logger.error(e.getMessage() + student.toString());
+			logger.error(e.getMessage());
 			throw e;
 		}
+
 		return true;
 	}
 

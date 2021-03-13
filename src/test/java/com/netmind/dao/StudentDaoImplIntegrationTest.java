@@ -80,7 +80,6 @@ public class StudentDaoImplIntegrationTest {
 	 */
 
 	@Test
-
 	@Parameters({ "3, pepe, soto, 21, 26-02-2000",
 			"4, Mar, Biel, 21, 26-02-2000",
 			"5, Juan, Fernando, 21, 26-02-2000" })
@@ -102,6 +101,11 @@ public class StudentDaoImplIntegrationTest {
 	@Test
 	public void testGetAllFromJson() throws IOException {
 		assertTrue(studentDao.getAllFromJson().size() > 0);
+	}
+
+	@Test
+	public void testRemoveFromJsonFile() throws IOException {
+		assertTrue(studentDao.removeFromJsonFile(2) == true);
 	}
 
 	@Test
