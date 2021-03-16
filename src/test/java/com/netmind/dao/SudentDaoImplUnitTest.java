@@ -61,6 +61,9 @@ public class SudentDaoImplUnitTest {
 		studentList.add(student1);
 
 		when(studentDao.getAllFromJson()).thenReturn(studentList);
+		when(studentDao.addToJsonFile(student)).thenReturn(true);
+		when(studentDao.updateToJsonFile(student)).thenReturn(true);
+		when(studentDao.removeFromJsonFile(1)).thenReturn(true);
 	}
 
 	@Test
@@ -71,5 +74,23 @@ public class SudentDaoImplUnitTest {
 		verify(studentDao, never()).add(student1);
 		assertTrue("El tamaño de la lista es diferente que 2",
 				studentList.size() == 2);
+	}
+
+	@Test
+	public void testAddToJson() throws IOException {
+		assertTrue("El Estudiante no se ha insertado correctamente",
+				studentDao.addToJsonFile(student) == true);
+	}
+
+	@Test
+	public void testUpdateToJsonFile() throws IOException {
+		assertTrue("El Estudiante no se ha insertado correctamente",
+				studentDao.updateToJsonFile(student) == true);
+	}
+
+	@Test
+	public void testRemoveFromJsonFile() throws IOException {
+		assertTrue("El Estudiante no se ha insertado correctamente",
+				studentDao.removeFromJsonFile(1) == true);
 	}
 }
